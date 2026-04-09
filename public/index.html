@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bulk Image ZIP Downloader</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <h2>Bookmark Tool</h2>
+        <p class="sidebar-text">
+          Drag the button below to your bookmarks bar to save the Behance image extractor bookmarklet.
+        </p>
+
+        <a id="bookmarkletBtn" class="bookmarklet-btn" href="#">
+          Add Image Link Bookmark
+        </a>
+
+        <p class="sidebar-instruction">
+          Show your bookmarks bar first, then drag this button into it.
+        </p>
+      </div>
+    </aside>
+
+    <main class="container">
+      <div class="card">
+        <h1>Bulk Image ZIP Downloader</h1>
+        <p>
+          Paste multiple image links, line by line.
+          <strong>Preview Images</strong> to check image loading.
+          <strong>Download ZIP</strong> to fetch valid images from the server
+          and download them as a single <strong>images.zip</strong> file.
+        </p>
+
+        <p class="note">
+          Note: Some protected sites may block remote fetching. Those images may not be added to the ZIP file.
+        </p>
+
+        <textarea
+          id="imageLinks"
+          placeholder="https://example.com/image1.jpg&#10;https://example.com/image2.png&#10;https://example.com/image3.webp"
+        ></textarea>
+
+        <div class="actions">
+          <button class="primary" id="previewBtn">Preview Images</button>
+          <button class="secondary" id="downloadZipBtn">Download ZIP</button>
+          <button class="danger" id="clearBtn">Clear</button>
+        </div>
+
+        <div class="status" id="status">No images loaded yet.</div>
+      </div>
+
+      <div class="grid" id="previewGrid">
+        <div class="empty-card">Image previews will appear here.</div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

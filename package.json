@@ -1,0 +1,9 @@
+{
+  "name": "bulk-image-zip-downloader",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "axios": "^1.8.4"
+  }
+}
