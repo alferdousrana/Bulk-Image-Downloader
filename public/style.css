@@ -13,10 +13,18 @@ body {
   display: flex;
   min-height: 100vh;
 }
+.right_side {
+  justify-content: left;
+  align-items: start;
+  padding: 40px 20px;
+}
 
 .sidebar {
   width: 280px;
   padding: 24px 0 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .sidebar-card {
@@ -24,6 +32,9 @@ body {
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   padding: 20px;
+}
+
+.sidebar-card:first-child {
   position: sticky;
   top: 24px;
 }
@@ -64,6 +75,20 @@ body {
   color: #6b7280;
 }
 
+/* NEW */
+.how-it-works-card {
+  position: static;
+  width: 100%;
+  height: 600px;
+}
+
+.how-it-works-gif {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+  border: 1px solid #e5e7eb;
+}
+
 .container {
   flex: 1;
   max-width: 1100px;
@@ -96,6 +121,29 @@ p {
   border: 1px solid #fdba74;
   padding: 12px;
   border-radius: 12px;
+}
+
+/* NEW */
+.textarea-topbar {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.paste-btn {
+  background: #10b981;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.paste-btn:hover {
+  transform: translateY(-1px);
 }
 
 textarea {
@@ -220,6 +268,62 @@ button:active {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
+
+.show-gif-btn {
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.show-gif-btn:hover {
+  transform: translateY(-1px);
+}
+
+.gif-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.gif-modal.show {
+  display: flex;
+}
+
+.gif-modal-image {
+  max-width: 95vw;
+  max-height: 95vh;
+  border-radius: 12px;
+  display: block;
+}
+
+.close-gif-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #ffffff;
+  color: #111827;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
 @media (max-width: 900px) {
   .layout {
     flex-direction: column;
@@ -230,7 +334,7 @@ button:active {
     padding: 16px 16px 0;
   }
 
-  .sidebar-card {
+  .sidebar-card:first-child {
     position: static;
   }
 
@@ -251,5 +355,9 @@ button:active {
 
   button {
     width: 100%;
+  }
+
+  .paste-btn {
+    width: auto;
   }
 }
