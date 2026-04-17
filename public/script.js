@@ -2,9 +2,13 @@ const imageLinksInput = document.getElementById("imageLinks");
 const previewBtn = document.getElementById("previewBtn");
 const downloadZipBtn = document.getElementById("downloadZipBtn");
 const clearBtn = document.getElementById("clearBtn");
+const pasteBtn = document.getElementById("pasteBtn"); // NEW
 const previewGrid = document.getElementById("previewGrid");
 const statusEl = document.getElementById("status");
 const bookmarkletBtn = document.getElementById("bookmarkletBtn");
+const showGifBtn = document.getElementById("showGifBtn");
+const gifModal = document.getElementById("gifModal");
+const closeGifBtn = document.getElementById("closeGifBtn");
 
 let previewData = [];
 
@@ -132,6 +136,23 @@ async function downloadZip() {
   }
 }
 
+async function pasteFromClipboard() {
+  try {
+    const text = await navigator.clipboard.readText();
+
+    if (!text.trim()) {
+      updateStatus("Clipboard is empty.");
+      return;
+    }
+
+    imageLinksInput.value = text;
+    updateStatus("Clipboard content pasted successfully.");
+  } catch (error) {
+    console.error(error);
+    updateStatus("Clipboard paste failed. Please allow clipboard permission.");
+  }
+}
+
 function clearAll() {
   imageLinksInput.value = "";
   previewData = [];
@@ -146,3 +167,17 @@ previewBtn.addEventListener("click", () => {
 
 downloadZipBtn.addEventListener("click", downloadZip);
 clearBtn.addEventListener("click", clearAll);
+pasteBtn.addEventListener("click", pasteFromClipboard); // NEW
+showGifBtn.addEventListener("click", () => {
+  gifModal.classList.add("show");
+});
+
+closeGifBtn.addEventListener("click", () => {
+  gifModal.classList.remove("show");
+});
+
+gifModal.addEventListener("click", (e) => {
+  if (e.target === gifModal) {
+    gifModal.classList.remove("show");
+  }
+});
